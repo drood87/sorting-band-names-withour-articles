@@ -42,14 +42,22 @@ function compare(a, b) {
         .toString()
         .trim();
 
-    if (aBand > bBand) {
-        return 1;
-    } else if (aBand < bBand) {
-        return -1;
-    } else {
-        return 0;
-    }
+    return aBand > bBand ? 1 : -1;
 }
 
 const sortedBands = bands.sort(compare);
 displayResults();
+
+//Wes Bos Solution
+
+// function strip(bandName) {
+//     return bandName.replace(/^(a | an | the)/gim, "").trim(); //Will replace article with empty string, my solution works with .split(), filer(), toString() but does the same. Wes solution seems to be shorter.
+// }
+
+// const sortedBands = bands.sort(
+//     (a, b) => (strip(a) > strip(b) ? 1 : -1) // easier as in shorter. It does not manipulate the original array and also works straigth with the string without creating an array forst like I did with .split()
+// );
+
+// document.querySelector("#bands").innerHTML = sortedBands
+//     .map(band => `<li>${band}</li>`)
+//     .join(""); //.map returns an array so we have to .join() it and make it a string The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
